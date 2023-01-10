@@ -1,6 +1,6 @@
 package rh.model;
 
-public class Colaborador {
+public abstract class Colaborador {
 	
 	private int id;
 	private String nome;
@@ -69,9 +69,8 @@ public class Colaborador {
 		System.out.println("Salário do funcionário: " + this.salario);
 	}
 	
-	public void aumentarSalario(float percentual) {
-		this.setSalario(this.getSalario() * (1 + (percentual / 100)));
-	}
+	public abstract void aumentarSalario(float percentual); 
+	
 	
 }
 

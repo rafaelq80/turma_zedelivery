@@ -21,12 +21,15 @@ public class Gerente extends Colaborador{
 		super.visualizar();
 		System.out.println("Bonificação do gerente: " + this.bonificacao);
 	}
-	
+
 	@Override
 	public void aumentarSalario(float percentual) {
- 		float bonus = 5.0f;
+		float bonus = 5.0f;
 		this.setSalario(this.getSalario() * (1 + ((percentual + bonus) / 100)));
+		
 	}
+	
+
 	
 }
 

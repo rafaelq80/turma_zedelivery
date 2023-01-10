@@ -19,6 +19,9 @@ public class Menu {
 		int opcao, id, cargo = 0;
 		String nome, email = "";
 		float salario, bonificacao, comissao, pecentual = 0.0f;
+				
+		colaboradores.cadastrar(new Gerente(colaboradores.gerarNumero(), "Aimée Thompson", "aimee@gen.com.br", 1, 10000.0f, 500.0f));
+		colaboradores.cadastrar(new Vendedor(colaboradores.gerarNumero(), "Marlon Bassoto", "marlon@gen.com.br", 2, 6000.0f, 5.0f));
 		
 		while(true) {
 
@@ -94,14 +97,48 @@ public class Menu {
 					
 					System.out.println("Consultar os dados de um funcionário\n\n");
 							
+					System.out.println("Digite o Id do Funcionário: ");
+					id = leia.nextInt();
 					
+					colaboradores.buscarPorId(id);
 					
 					keyPress();
 	
 					break;
 				case 4:
 					System.out.println("Atualizar dados do funcionário\n\n");
-								
+						
+					System.out.println("Digite o Id do Funcionário: ");
+					id = leia.nextInt();
+										
+					System.out.println("Digite o Nome do Funcionário: ");
+					leia.skip("\\R?");
+					nome = leia.nextLine();
+					System.out.println("Digite o E-mail do Funcionário: ");
+					leia.skip("\\R?");
+					email = leia.nextLine();
+						
+					do {
+						System.out.println("Digite o Cargo do Funcionário (1-Gerente/2-vendedor): ");
+						cargo = leia.nextInt();
+					}while(cargo != 1 && cargo != 2);
+					
+					System.out.println("Digite o Salário do Funcionário: ");
+					salario = leia.nextFloat();
+					
+					if (cargo == 1) {
+						System.out.println("Digite o valor da Bonificação do Gerente (R$): ");
+						bonificacao = leia.nextFloat();
+						
+						colaboradores.atualizar(new Gerente(id, nome, email, cargo, salario, bonificacao));
+						
+					}else {
+						System.out.println("Digite o percentual da comissão (%): ");
+						comissao = leia.nextInt();
+						
+						colaboradores.atualizar(new Vendedor(id, nome, email, cargo, salario, comissao));
+						
+					}
 					
 					keyPress();
 
@@ -109,7 +146,10 @@ public class Menu {
 				case 5:
 					System.out.println("Deletar funcionário\n\n");
 					
-			
+					System.out.println("Digite o Id do Funcionário: ");
+					id = leia.nextInt();
+					
+					colaboradores.deletar(id);
 					
 					keyPress();
 					

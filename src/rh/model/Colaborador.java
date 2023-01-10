@@ -66,7 +66,7 @@ public abstract class Colaborador {
 		System.out.println("Nome do funcionário: " + this.nome);
 		System.out.println("E-mail do funcionário: " + this.email);
 		System.out.println("Cargo do funcionário: " + this.cargo);
-		System.out.println("Salário do funcionário: " + this.salario);
+		System.out.println("Salário do funcionário: R$ " + this.salario);
 	}
 	
 	public abstract void aumentarSalario(float percentual); 

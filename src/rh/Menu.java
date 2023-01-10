@@ -71,14 +71,12 @@ public class Menu {
 						
 						colaboradores.cadastrar(new Gerente(colaboradores.gerarNumero(), nome, email, cargo, salario, bonificacao));
 						
-					}else if (cargo == 2) {
+					}else {
 						System.out.println("Digite o percentual da comissão (%): ");
 						comissao = leia.nextInt();
 						
 						colaboradores.cadastrar(new Vendedor(colaboradores.gerarNumero(), nome, email, cargo, salario, comissao));
 						
-					}else {
-						System.out.println("Cargo Inválido!");
 					}
 					
 					keyPress();
